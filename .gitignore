@@ -1,0 +1,79 @@
+# Law Office Management System - .gitignore
+
+# Database files (exclude actual data, keep structure)
+data/*.db
+data/backups/*.db
+data/backups/*.sql
+
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+
+# User data (keep private)
+data/documents/*
+data/reports/*
+
+# But keep the directory structure
+!data/documents/.gitkeep
+!data/reports/.gitkeep
+!data/backups/.gitkeep
+
+# Configuration files with sensitive data
+config_local.py
+.env
+
+# Test coverage
+.coverage
+htmlcov/
+.pytest_cache/
