@@ -46,13 +46,26 @@ A comprehensive law office management system designed specifically for Egyptian 
 - Python 3.7 or higher
 - Windows 10/11 (optimized for Windows)
 
-### Step 1: Install Python Dependencies
+### Step 1: Run Setup Script (Recommended)
+```bash
+python setup.py
+```
+This will automatically:
+- Check Python version compatibility
+- Verify tkinter availability
+- Install all required dependencies
+- Create necessary directories
+- Test Arabic text rendering
+- Run a GUI test
+
+### Step 2: Manual Installation (Alternative)
+If you prefer manual installation:
 ```bash
 pip install -r requirements.txt
 ```
 
 Required packages:
-- `tkinter` (usually comes with Python)
+- `tkinter` (built into Python - no installation needed)
 - `Pillow==10.1.0`
 - `reportlab==4.0.7`
 - `openpyxl==3.1.2`
@@ -64,20 +77,27 @@ Required packages:
 - `arabic-reshaper==3.0.0`
 - `python-bidi==0.4.2`
 
-### Step 2: Run the Application
+### Step 3: Run the Application
 ```bash
 python main.py
 ```
+Or on Windows, double-click `run_law_office.bat`
 
 ## Usage / الاستخدام
 
 ### First Time Setup
-1. Run the application using `python main.py`
-2. Use default credentials:
+1. **Recommended**: Run the setup script first:
+   ```bash
+   python setup.py
+   ```
+2. Or use the comprehensive Windows launcher: `setup_and_run.bat`
+3. For quick testing, run: `python test_installation.py`
+4. Start the application: `python main.py`
+5. Use default credentials:
    - **Username**: `admin`
    - **Password**: `admin123`
-3. Change language using the dropdown in login screen
-4. Create additional users through Settings > User Management (Admin only)
+6. Change language using the dropdown in login screen
+7. Create additional users through Settings > User Management (Admin only)
 
 ### Navigation / التنقل
 - **Dashboard**: Overview with statistics and recent activities
@@ -114,6 +134,8 @@ python main.py
 ```
 law_office_management/
 ├── main.py                    # Main application entry point
+├── setup.py                   # Setup and installation script
+├── test_installation.py       # Installation verification script
 ├── config.py                  # Configuration settings
 ├── database.py                # Database models and management
 ├── auth.py                    # Authentication and user management
@@ -129,9 +151,11 @@ law_office_management/
 ├── billing_management.py      # Billing management (placeholder)
 ├── reports.py                 # Reports module (placeholder)
 ├── user_management_ui.py      # User management interface (placeholder)
-├── requirements.txt           # Python dependencies
+├── requirements.txt           # Python dependencies (no tkinter)
+├── run_law_office.bat         # Simple Windows launcher
+├── setup_and_run.bat          # Complete Windows setup and launcher
 ├── README.md                  # This file
-└── data/                      # Application data directory
+└── data/                      # Application data directory (auto-created)
     ├── law_office.db          # SQLite database (auto-created)
     ├── documents/             # Document storage
     ├── backups/               # Database backups
@@ -199,6 +223,18 @@ Edit the color constants in `config.py`:
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
+
+#### "Could not find a version that satisfies the requirement tkinter" Error
+This error occurs because `tkinter` is built into Python and should not be installed via pip. 
+
+**Solution:**
+1. Remove `tkinter` from requirements.txt (already done in latest version)
+2. Run the setup script: `python setup.py`
+3. If tkinter is still missing, you may need to install it system-wide:
+   - **Windows**: Reinstall Python with tkinter enabled
+   - **Ubuntu/Debian**: `sudo apt-get install python3-tk`
+   - **CentOS/RHEL**: `sudo yum install tkinter`
+   - **macOS**: `brew install python-tk`
 
 #### Arabic Text Not Displaying Correctly
 Ensure you have Arabic Unicode fonts installed on your system:
